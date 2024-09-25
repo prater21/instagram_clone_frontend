@@ -1,0 +1,149 @@
+@import "reset.css";
+@import "variable.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+@font-face {
+    font-family: "AppleSDGothicBold";
+    src: url("/src/assets/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "AppleSDGothicRegular";
+    src: url("/src/assets/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "AppleSDGothicSemiBold";
+    src: url("/src/assets/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "AppleSDGothicMedium";
+    src: url("/src/assets/fonts/AppleSDGothicNeoM.ttf") format("truetype");
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+:root {
+    font-size: 32px;
+    --app-height: 100%;
+}
+
+/* body,
+#root,
+#root > div {
+    background-color: black;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+button,
+input,
+textarea,
+ul,
+li,
+div {
+    font-family: "AppleSDGothicRegular" !important;
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #737373;
+    letter-spacing: 0;
+    white-space: pre-line;
+    box-sizing: border-box;
+}
+
+.title-01 {
+    font-family: "AppleSDGothicBold" !important;
+    font-size: 2.25rem;
+    line-height: 3rem;
+}
+
+.title-02 {
+    font-family: "AppleSDGothicSemiBold" !important;
+    font-size: 1.75rem;
+    line-height: 2.06rem;
+}
+
+.title-03 {
+    font-family: "AppleSDGothicSemiBold" !important;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+}
+
+.body-01 {
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 0.5rem;
+    line-height: 0.67rem;
+}
+
+.body-02 {
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 0.4375rem;
+    line-height: 0.62rem;
+}
+
+.body-01-S {
+    font-family: "AppleSDGothicSemiBold" !important;
+    font-size: 0.5rem;
+    line-height: 0.68rem;
+}
+
+.caption-01-S {
+    font-family: "AppleSDGothicSemiBold" !important;
+    font-size: 0.75rem;
+    line-height: 1.12rem;
+}
+
+.body-01-S.eng,
+.body-01.eng {
+    font-size: 0.56rem;
+    /* line-height: 0.75rem; */
+}
+.body-02.eng {
+    font-size: 0.5rem;
+    line-height: 0.67rem;
+}
+
+.caption-01-R {
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 0.62rem;
+    line-height: 0.81rem;
+}
+
+.caption-02-S {
+    font-family: "AppleSDGothicSemiBold" !important;
+    font-size: 0.62rem;
+    line-height: 0.81rem;
+}
+
+.Mcaption-01-R {
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 0.37rem;
+    line-height: 0.56rem;
+}
+.Mcaption-01-R.eng {
+    font-size: 0.4375rem;
+}
+
+.gray {
+    color: var(--color-gray-10);
+}
+.point {
+    color: var(--color-primary-point);
+}
+[class$="-page"] > [class$="-section"] {
+    display: flex;
+    min-height: 100vh;
+    min-height: var(--app-height);
+    line-height: 0.5625rem;
+}

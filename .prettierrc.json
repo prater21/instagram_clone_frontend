@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "semi": true,
+    "useTabs": false,
+    "javascriptEnable": ["javascript", "javascriptreact"],
+    "printWidth": 150,
+    "tabWidth": 4
+}

@@ -1,0 +1,73 @@
+.intro {
+    display: flex;
+}
+
+.intro-img-wrapper {
+    position: relative;
+}
+.intro-source-img {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+}
+
+.intro-login-wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 30px 0;
+    border: 1px solid rgba(219, 219, 219);
+    border-radius: 1px;
+    margin-top: 20px;
+}
+.intro-login-wrapper.second {
+    padding: 25px 0;
+}
+
+.intro-logo {
+    width: 250px;
+    object-fit: contain;
+    margin: 24px 0 12px 0;
+}
+.intro-subtitle {
+    font-family: "AppleSDGothicBold";
+    font-size: 16px;
+    color: #737373;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-input-wrapper {
+    margin-top: 35px;
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.intro-input-wrapper div {
+    height: 42px;
+    width: 100%;
+}
+
+.intro-login-btn {
+    margin-top: 50px;
+}
+
+.intro-psw {
+    text-align: right;
+    font-size: 14px;
+}
+
+.intro-register p {
+    font-size: 14px;
+    color: #000;
+}
+
+.intro-register span {
+    color: #0095f6;
+    font-weight: 600;
+    cursor: pointer;
+}
