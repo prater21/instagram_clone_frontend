@@ -2,8 +2,9 @@
 
 export const PAGES = {
     INTRO: "/",
-    JOIN_EMAIL: "/join/email-auth",
-    JOIN_USERNAME: "/join/username",
-    JOIN_COMPLETE: "/join/complete",
+    JOIN_EMAIL: "/signup/email-auth",
+    JOIN_USERNAME: "/signup/username",
+    JOIN_COMPLETE: "/signup/complete",
     SIGNUP: "/signup",
+    RESET_PSW: "/accounts/password/reset/"
 };

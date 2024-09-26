@@ -6,36 +6,14 @@ const getTimestamp = () => {
 };
 
 const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_TEST_HOST,
+    baseURL: process.env.REACT_APP_HOST,
     timeout: 5000,
-});
-
-const axiosIpInstance = axios.create({
-    timeout: 3000,
 });
 
 const getAccessToken = () => {
     return localStorage.getItem("access_token");
 };
 
-const getIP = async () => {
-    const response = await getIpFirst();
-    if (response.result === "Y") {
-        return response.data;
-    } else {
-        return "0.0.0.0";
-    }
-};
-
-const getIpFirst = async () => {
-    try {
-        const response = await axiosIpInstance.get("https://geolocation-db.com/json/");
-        return { result: "Y", data: response.data.IPv4 };
-    } catch (error) {
-        // console.log("Ip first error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
-    }
-};
 const sendGetRequest = async (uri, params) => {
     try {
         const response = await axiosInstance.get(`/${uri}`, {
@@ -75,10 +53,12 @@ const sendGetRequestWithToken = async (uri, params) => {
 
 const sendPostRequest = async (uri, data) => {
     try {
-        const response = await axiosInstance.post(`/${uri}`, {
-            ...data,
-            timestamp: getTimestamp(),
-        });
+        const response = await axiosInstance.post(`/${uri}`,
+            {
+                ...data,
+                timestamp: getTimestamp(),
+            }
+        );
         return { result: "Y", response: response.data };
     } catch (error) {
         // console.log("sendPostRequest error : ", error);
@@ -108,18 +88,13 @@ const sendPostRequestWithToken = async (uri, data) => {
     }
 };
 
-const sendPostRequestWithParams = async (uri, params, data) => {
+const sendPostRequestFormData = async (uri, data) => {
     try {
-        const response = await axiosInstance.post(`/${uri}`, data, {
-            params: { ...params },
-            headers: {
-                Authorization: getAccessToken(),
-            },
-        });
+        const response = await axiosInstance.post(`/${uri}`, data,
+        );
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendPostRequestWithToken error : ", error);
         return { result: "N", code: "101", message: "Network Error", response: error };
     }
 };
@@ -176,6 +151,7 @@ const checkSessionError = (data) => {
 };
 
 export const checkError = (res) => {
+    // console.log('res', res)
     if (res.result === "N") {
         return res;
     } else {
@@ -201,21 +177,21 @@ export const checkError = (res) => {
 /**
  * api 통신 테스트 로그 출력하고 싶을때 주석 풀고 사용하세요!
  */
-// axiosInstance.interceptors.response.use(
-//     (response) => {
-//         const config = response.config;
-//         if (config.method === "get") {
-//             console.log("REQ ==== ", config.method, config.url, config.params, config);
-//         } else {
-//             console.log("REQ ==== ", config.method, config.url, config.data);
-//         }
-//         console.log("RES ==== ", response.data);
-//         return response;
-//     },
-//     (error) => {
-//         return Promise.reject(error);
-//     }
-// );
+axiosInstance.interceptors.response.use(
+    (response) => {
+        const config = response.config;
+        if (config.method === "get") {
+            console.log("REQ ==== ", config.method, config.url, config.params, config);
+        } else {
+            console.log("REQ ==== ", config.method, config.url, config.data);
+        }
+        console.log("RES ==== ", response.data);
+        return response;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 export {
     sendGetRequest,
@@ -225,8 +201,6 @@ export {
     getTimestamp,
     sendGetRequestWithToken,
     sendPostRequestWithToken,
-    sendPostRequestWithParams,
+    sendPostRequestFormData,
     getAccessToken,
-    axiosInstance,
-    getIP,
 };

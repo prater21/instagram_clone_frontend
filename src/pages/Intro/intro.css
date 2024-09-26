@@ -1,4 +1,5 @@
 .intro {
+    margin-top: 30px;
     display: flex;
 }
 
@@ -13,16 +14,11 @@
 
 .intro-login-wrapper {
     width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0 30px 0;
-    border: 1px solid rgba(219, 219, 219);
-    border-radius: 1px;
-    margin-top: 20px;
 }
-.intro-login-wrapper.second {
-    padding: 25px 0;
+
+.intro-signup-wrapper {
+    padding: 25px 0 !important;
+    margin-top: 20px !important;
 }
 
 .intro-logo {
@@ -39,26 +35,15 @@
 }
 
 .intro-input-wrapper {
-    margin-top: 35px;
-    width: 100%;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.intro-input-wrapper div {
-    height: 42px;
-    width: 100%;
-}
-
-.intro-login-btn {
-    margin-top: 50px;
+    width: 350px;
 }
 
 .intro-psw {
     text-align: right;
     font-size: 14px;
+    text-decoration: underline;
+    margin-bottom: 70px;
+    cursor: pointer;
 }
 
 .intro-register p {
@@ -70,4 +55,11 @@
     color: #0095f6;
     font-weight: 600;
     cursor: pointer;
+    margin-left: 5px;
+}
+.intro-error-login {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: -30px;
 }

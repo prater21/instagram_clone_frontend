@@ -38,10 +38,24 @@ const StyledTextField = styled((props) => (
 }));
 
 const Input = (props) => {
-    const { className, label } = props;
+    const { className, label, value, setValue, type = "", disabled = false, helperText } = props;
+    const onChangeHandler = (e) => {
+        const inputValue = e.target.value;
+        setValue(inputValue);
+    };
     return (
         <div className={`input-basic ${className || ""}`}>
-            <StyledTextField autoComplete={"off"} id="reddit-input" variant="filled" label={label} />
+            <StyledTextField
+                disabled={disabled}
+                type={type}
+                value={value}
+                onChange={onChangeHandler}
+                autoComplete={"off"}
+                id="reddit-input"
+                variant="filled"
+                label={label}
+            />
+            <p className="input-helper-msg">{helperText}</p>
         </div>
     );
 };

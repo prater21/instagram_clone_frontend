@@ -1,35 +1,66 @@
 import MiddleWrapper from "../../components/Layout/IntroWrapper";
 import "./join.css";
 import logoSrc from "../../assets/images/intro-logo.png";
-import Input from "../../components/Input/Input";
-import Button from "../../components/Buttons/Button";
-import { useNavigate } from "react-router-dom";
 import EmailAuth from "./JoinSteps/EmailAuth";
 import Username from "./JoinSteps/Username";
 import Password from "./JoinSteps/Password";
 import Description from "./JoinSteps/Description";
+import { useState } from "react";
+import Border from "../../components/Border/Border";
+import InputWrapper from "../../components/Layout/InputWrapper";
+import { postJoinApi } from "../../apis/joinApis";
+import useToast from "../../hooks/useToast";
+import { useNavigate } from "react-router-dom";
 
 const Join = () => {
-    const navigate = useNavigate();
+    const naviagte = useNavigate();
+    const { openToast } = useToast();
+    const [steps, setSteps] = useState(0);
+    const [value, setValue] = useState({
+        email: "",
+        username: "",
+        password: "",
+        description: "",
+    });
+    console.log(value);
+    const setUserInfo = (type, value) => {
+        setValue((prev) => ({ ...prev, [type]: value }));
+    };
+    const onSuccess = (num) => {
+        setSteps(num);
+    };
+    const joinHandler = async () => {
+        const response = await postJoinApi(value);
+        if (response.result === "Y") {
+            openToast({ message: "Successfully SignUp!" });
+            naviagte("/");
+            //   setSendMail(true);
+            // setAuthId(response.auth_id);
+            //   setIsError(false);
+            // } else {
+            // }
+        }
+    };
 
+    const STEPS = [
+        <EmailAuth value={value.email} setValue={setUserInfo} onSuccess={onSuccess} />,
+        <Password value={value.password} setValue={setUserInfo} onSuccess={onSuccess} />,
+        <Username value={value.username} setValue={setUserInfo} onSuccess={onSuccess} />,
+        <Description value={value.description} setValue={setUserInfo} onSuccess={onSuccess} joinHandler={joinHandler} />,
+    ];
     return (
         <>
             <MiddleWrapper>
-                <div className="intro-wrapper">
-                    <div className="intro-login-wrapper">
-                        <img className="intro-logo" src={logoSrc} alt="intro-logo" />
-                        <p className="intro-subtitle">{"Sign up to see photos and videos\n from your friends."}</p>
-                        <div className="intro-input-wrapper">
-                            <EmailAuth />
-                            <Username />
-                            <Password />
-                            <Description />
-                            <Button disabled className="intro-login-btn">
-                                Next
-                            </Button>
-                        </div>
-                    </div>
-                </div>
+                <Border className="join-wrapper">
+                    <img className="join-logo" src={logoSrc} alt="intro-logo" />
+                    <p className="join-subtitle">{"Sign up to see photos and videos\n from your friends."}</p>
+                    <InputWrapper>
+                        {STEPS[steps]}
+                        {/* <Button disabled className="join-btn">
+                            Next
+                        </Button> */}
+                    </InputWrapper>
+                </Border>
             </MiddleWrapper>
         </>
     );
