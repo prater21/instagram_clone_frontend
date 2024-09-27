@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import IntroWrapper from "../../components/Layout/IntroWrapper";
 import { useEffect, useState } from "react";
 import { checkValidation } from "../../utils/validation";
-import { postLoginApi } from "../../apis/loginApis";
+import { postLoginApi } from "../../apis/loginApi";
 import CrossfadeImage from "react-crossfade-image";
 import Border from "../../components/Border/Border";
 import { ErrorText } from "../../components/Text";

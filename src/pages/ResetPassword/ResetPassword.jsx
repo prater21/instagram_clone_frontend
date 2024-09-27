@@ -5,7 +5,8 @@ import "./resetpassword.css";
 import { useEffect, useState } from "react";
 import Button from "../../components/Buttons/Button";
 import { checkValidation } from "../../utils/validation";
-import { postConfirmEmail, postResetPassword, postSendEmail } from "../../apis/authApis";
+import { postConfirmEmail, postSendEmail } from "../../apis/authApi";
+import { postResetPassword } from "../../apis/userApi";
 import Border from "../../components/Border/Border";
 import { ErrorText } from "../../components/Text";
 import InputWrapper from "../../components/Layout/InputWrapper";
@@ -63,13 +64,18 @@ const ResetPassword = () => {
     }, [email]);
 
     useEffect(() => {
+        if (!isAuth) {
+            const flag = authCode.length === 6;
+            setDisabled(!flag);
+            return;
+        }
         if (password.password === "" && password.rePassword === "") {
             setDisabled(true);
             return;
         }
         const flag = password.password === password.rePassword;
         setDisabled(!flag);
-    }, [password]);
+    }, [password, authCode]);
 
     return (
         <IntroWrapper>

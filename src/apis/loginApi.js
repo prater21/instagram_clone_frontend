@@ -9,5 +9,6 @@ import { sendGetRequest, sendPostRequest, sendPostRequestFormData, checkError, s
  */
 export const postLoginApi = async (data) => {
     const response = await sendPostRequestFormData("login", data);
-    return checkError(response);
+    return response;
+
 };

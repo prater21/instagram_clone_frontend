@@ -4,7 +4,7 @@ import { checkValidation } from "../../../utils/validation";
 import { ErrorText } from "../../../components/Text";
 import Button from "../../../components/Buttons/Button";
 import "../join.css";
-import { postCheckEmail, postConfirmEmail, postSendEmail } from "../../../apis/authApis";
+import { postCheckEmail, postConfirmEmail, postSendEmail } from "../../../apis/authApi";
 
 const EmailAuth = ({ value, setValue, onSuccess }) => {
     const [authCode, setAuthCode] = useState("");
@@ -81,7 +81,7 @@ const EmailAuth = ({ value, setValue, onSuccess }) => {
                 />
             )}
             <p onClick={resetValue} className={`join-reset-btn ${isError ? "margin" : ""}`}>
-                reset email
+                reset
             </p>
             {isError && <ErrorText className="join-errmsg">{errorMsg}</ErrorText>}
 

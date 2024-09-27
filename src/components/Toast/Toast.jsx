@@ -4,7 +4,6 @@ import useToast from "../../hooks/useToast";
 
 const Toast = (props) => {
     const { toastState, closeToast } = useToast();
-    console.log("toastState", toastState);
     const handleClose = () => {
         closeToast();
     };

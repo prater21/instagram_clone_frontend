@@ -19,7 +19,7 @@ const sendGetRequest = async (uri, params) => {
         const response = await axiosInstance.get(`/${uri}`, {
             params: {
                 ...params,
-                timestamp: getTimestamp(),
+                // timestamp: getTimestamp(),
             },
             headers: {
                 "Access-Control-Allow-Origin": "*",
@@ -27,8 +27,8 @@ const sendGetRequest = async (uri, params) => {
         });
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendGetRequest error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -37,7 +37,7 @@ const sendGetRequestWithToken = async (uri, params) => {
         const response = await axiosInstance.get(`/${uri}`, {
             params: {
                 ...params,
-                timestamp: getTimestamp(),
+                // timestamp: getTimestamp(),
             },
             headers: {
                 Authorization: getAccessToken(),
@@ -46,8 +46,8 @@ const sendGetRequestWithToken = async (uri, params) => {
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendGetRequestWithToken error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -56,13 +56,13 @@ const sendPostRequest = async (uri, data) => {
         const response = await axiosInstance.post(`/${uri}`,
             {
                 ...data,
-                timestamp: getTimestamp(),
+                // timestamp: getTimestamp(),
             }
         );
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendPostRequest error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -72,7 +72,7 @@ const sendPostRequestWithToken = async (uri, data) => {
             `/${uri}`,
             {
                 ...data,
-                timestamp: getTimestamp(),
+                // timestamp: getTimestamp(),
             },
             {
                 headers: {
@@ -83,8 +83,8 @@ const sendPostRequestWithToken = async (uri, data) => {
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendPostRequestWithToken error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -95,7 +95,8 @@ const sendPostRequestFormData = async (uri, data) => {
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -105,7 +106,7 @@ const sendPutRequest = async (uri, data) => {
             `/${uri}`,
             {
                 ...data,
-                timestamp: getTimestamp(),
+                // timestamp: getTimestamp(),
             },
             {
                 headers: {
@@ -116,8 +117,8 @@ const sendPutRequest = async (uri, data) => {
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendDeleteRequest error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -131,8 +132,8 @@ const sendDeleteRequest = async (uri, data) => {
         checkSessionError(response.data);
         return { result: "Y", response: response.data };
     } catch (error) {
-        // console.log("sendDeleteRequest error : ", error);
-        return { result: "N", code: "101", message: "Network Error", response: error };
+        const response = error.response
+        return { result: "N", code: response.status, message: response.data };
     }
 };
 
@@ -189,6 +190,13 @@ axiosInstance.interceptors.response.use(
         return response;
     },
     (error) => {
+        const config = error.config;
+        if (config.method === "get") {
+            console.log("ERROR REQ ==== ", config.method, config.url, config.params, config);
+        } else {
+            console.log("ERROR REQ ==== ", config.method, config.url, config.data);
+        }
+        console.log("ERROR RES ==== ", error.response.data);
         return Promise.reject(error);
     }
 );
@@ -198,7 +206,7 @@ export {
     sendPostRequest,
     sendPutRequest,
     sendDeleteRequest,
-    getTimestamp,
+    // getTimestamp,
     sendGetRequestWithToken,
     sendPostRequestWithToken,
     sendPostRequestFormData,

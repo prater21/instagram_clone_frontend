@@ -8,7 +8,7 @@ import Description from "./JoinSteps/Description";
 import { useState } from "react";
 import Border from "../../components/Border/Border";
 import InputWrapper from "../../components/Layout/InputWrapper";
-import { postJoinApi } from "../../apis/joinApis";
+import { postJoinApi } from "../../apis/joinApi";
 import useToast from "../../hooks/useToast";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const Join = () => {
         password: "",
         description: "",
     });
-    console.log(value);
+
     const setUserInfo = (type, value) => {
         setValue((prev) => ({ ...prev, [type]: value }));
     };
