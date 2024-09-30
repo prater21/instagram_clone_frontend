@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Input from "../../../components/Input/Input";
-import { checkValidation } from "../../../utils/validation";
 import { ErrorText } from "../../../components/Text";
 import Button from "../../../components/Buttons/Button";
-import "../join.css";
+import { checkValidation } from "../../../utils/validation";
 import { postCheckEmail, postConfirmEmail, postSendEmail } from "../../../apis/authApi";
+import "../join.css";
 
 const EmailAuth = ({ value, setValue, onSuccess }) => {
     const [authCode, setAuthCode] = useState("");
@@ -29,6 +29,7 @@ const EmailAuth = ({ value, setValue, onSuccess }) => {
         const response = await postSendEmail({ email: value });
         if (response.result === "Y") {
             setSendMail(true);
+            setDisabled(true);
             setAuthId(response.auth_id);
             setIsError(false);
         } else {
@@ -47,9 +48,13 @@ const EmailAuth = ({ value, setValue, onSuccess }) => {
     };
 
     useEffect(() => {
+        if (isValid && sendEmail) {
+            setDisabled(authCode.length !== 6);
+            return;
+        }
         const flag = checkValidation({ type: "email", value });
         setDisabled(!flag);
-    }, [value]);
+    }, [value, authCode]);
 
     const resetValue = () => {
         setValue("email", "");

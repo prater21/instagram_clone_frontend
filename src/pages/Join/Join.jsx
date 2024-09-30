@@ -1,16 +1,16 @@
-import MiddleWrapper from "../../components/Layout/IntroWrapper";
-import "./join.css";
-import logoSrc from "../../assets/images/intro-logo.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useToast from "../../hooks/useToast";
 import EmailAuth from "./JoinSteps/EmailAuth";
 import Username from "./JoinSteps/Username";
 import Password from "./JoinSteps/Password";
 import Description from "./JoinSteps/Description";
-import { useState } from "react";
 import Border from "../../components/Border/Border";
+import MiddleWrapper from "../../components/Layout/IntroWrapper";
 import InputWrapper from "../../components/Layout/InputWrapper";
 import { postJoinApi } from "../../apis/joinApi";
-import useToast from "../../hooks/useToast";
-import { useNavigate } from "react-router-dom";
+import logoSrc from "../../assets/images/intro-logo.png";
+import "./join.css";
 
 const Join = () => {
     const naviagte = useNavigate();
@@ -33,7 +33,7 @@ const Join = () => {
         const response = await postJoinApi(value);
         if (response.result === "Y") {
             openToast({ message: "Successfully SignUp!" });
-            naviagte("/");
+            naviagte("/login");
             //   setSendMail(true);
             // setAuthId(response.auth_id);
             //   setIsError(false);

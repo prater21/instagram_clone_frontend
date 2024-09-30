@@ -1,6 +1,6 @@
 import { Snackbar, SnackbarContent } from "@mui/material";
-import "./toast.css";
 import useToast from "../../hooks/useToast";
+import "./toast.css";
 
 const Toast = (props) => {
     const { toastState, closeToast } = useToast();

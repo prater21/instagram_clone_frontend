@@ -1,8 +1,7 @@
-import { sendPostRequest, checkError } from "../utils/axiosUtils";
+import { sendPostRequest } from "../utils/axiosUtils";
 
 /**
- * 2001
- * 회원 가입 
+ * signup
  * @param {*} data
  * @returns
  */

@@ -25,7 +25,7 @@ const sendGetRequest = async (uri, params) => {
                 "Access-Control-Allow-Origin": "*",
             },
         });
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -44,7 +44,7 @@ const sendGetRequestWithToken = async (uri, params) => {
             },
         });
         checkSessionError(response.data);
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.date };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -59,7 +59,7 @@ const sendPostRequest = async (uri, data) => {
                 // timestamp: getTimestamp(),
             }
         );
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -81,7 +81,7 @@ const sendPostRequestWithToken = async (uri, data) => {
             }
         );
         checkSessionError(response.data);
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.date };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -93,7 +93,7 @@ const sendPostRequestFormData = async (uri, data) => {
         const response = await axiosInstance.post(`/${uri}`, data,
         );
         checkSessionError(response.data);
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.date };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -115,7 +115,7 @@ const sendPutRequest = async (uri, data) => {
             }
         );
         checkSessionError(response.data);
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.date };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };
@@ -130,7 +130,7 @@ const sendDeleteRequest = async (uri, data) => {
             },
         });
         checkSessionError(response.data);
-        return { result: "Y", response: response.data };
+        return { result: "Y", ...response.date };
     } catch (error) {
         const response = error.response
         return { result: "N", code: response.status, message: response.data };

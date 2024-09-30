@@ -1,11 +1,13 @@
 .intro {
     margin-top: 30px;
     display: flex;
+    background-color: #fff;
 }
 
 .intro-img-wrapper {
     position: relative;
 }
+
 .intro-source-img {
     position: absolute;
     right: 60px;
@@ -26,10 +28,11 @@
     object-fit: contain;
     margin: 24px 0 12px 0;
 }
+
 .intro-subtitle {
     font-family: "AppleSDGothicBold";
     font-size: 16px;
-    color: #737373;
+    color: var(--color-primary-gray);
     text-align: center;
     margin-bottom: 40px;
 }
@@ -44,6 +47,7 @@
     text-decoration: underline;
     margin-bottom: 70px;
     cursor: pointer;
+    color: var(--color-primary-gray);
 }
 
 .intro-register p {
@@ -57,6 +61,7 @@
     cursor: pointer;
     margin-left: 5px;
 }
+
 .intro-error-login {
     color: red;
     text-align: center;

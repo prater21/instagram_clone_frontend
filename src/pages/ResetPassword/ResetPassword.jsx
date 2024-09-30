@@ -1,17 +1,17 @@
-import Input from "../../components/Input/Input";
-import IntroWrapper from "../../components/Layout/IntroWrapper";
-import lockIconSrc from "../../assets/images/lock-icon.png";
-import "./resetpassword.css";
 import { useEffect, useState } from "react";
-import Button from "../../components/Buttons/Button";
-import { checkValidation } from "../../utils/validation";
-import { postConfirmEmail, postSendEmail } from "../../apis/authApi";
-import { postResetPassword } from "../../apis/userApi";
-import Border from "../../components/Border/Border";
-import { ErrorText } from "../../components/Text";
-import InputWrapper from "../../components/Layout/InputWrapper";
 import { useNavigate } from "react-router-dom";
 import useToast from "../../hooks/useToast";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Buttons/Button";
+import Border from "../../components/Border/Border";
+import { ErrorText } from "../../components/Text";
+import IntroWrapper from "../../components/Layout/IntroWrapper";
+import InputWrapper from "../../components/Layout/InputWrapper";
+import { checkValidation } from "../../utils/validation";
+import { postResetPassword } from "../../apis/userApi";
+import { postConfirmEmail, postSendEmail } from "../../apis/authApi";
+import lockIconSrc from "../../assets/images/lock-icon.png";
+import "./resetpassword.css";
 
 const ResetPassword = () => {
     const naviagte = useNavigate();
@@ -35,6 +35,7 @@ const ResetPassword = () => {
             setSendMail(true);
             setAuthId(response.auth_id);
             setIsError(false);
+            setDisabled(true);
         } else {
         }
     };
@@ -52,10 +53,19 @@ const ResetPassword = () => {
     const resetPassword = async () => {
         const response = await postResetPassword({ email, password: password.password });
         if (response.result === "Y") {
-            naviagte("/");
+            naviagte("/login");
             openToast({ message: "Successfully Changed!" });
         } else {
         }
+    };
+
+    const resetValue = () => {
+        setEmail("");
+        setAuthCode("");
+        setSendMail(false);
+        setIsError(false);
+        setDisabled(true);
+        setIsAuth(false);
     };
 
     useEffect(() => {
@@ -106,6 +116,9 @@ const ResetPassword = () => {
                                     }}
                                 />
                             )}
+                            <p onClick={resetValue} className={`join-reset-btn ${isError ? "margin" : ""}`}>
+                                reset
+                            </p>
                             {isError && <ErrorText className="reset-errmsg">Invalid Authentication Code</ErrorText>}
                             <Button
                                 disabled={disabled}

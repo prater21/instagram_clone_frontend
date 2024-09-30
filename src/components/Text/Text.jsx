@@ -1,4 +1,5 @@
 import "./text.css";
+
 export const ErrorText = (props) => {
     const { children, className, ...otherProps } = props;
 

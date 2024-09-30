@@ -19,7 +19,6 @@ const useToast = () => {
         [toastState]
     );
 
-
     const closeToast = useCallback(
         () => {
             setToastState({

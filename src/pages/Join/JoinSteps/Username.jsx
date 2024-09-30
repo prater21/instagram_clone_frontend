@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Button from "../../../components/Buttons/Button";
 import Input from "../../../components/Input/Input";
-import { postCheckUsername } from "../../../apis/authApi";
 import { ErrorText } from "../../../components/Text";
+import { postCheckUsername } from "../../../apis/authApi";
 
 const Username = ({ value, setValue, onSuccess }) => {
     const [disabled, setDisabled] = useState(true);

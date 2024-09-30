@@ -1,9 +1,8 @@
-import { sendGetRequest, sendPostRequest, sendPostRequestFormData, checkError, sendPostRequestWithToken } from "../utils/axiosUtils";
+import { sendPostRequestFormData, } from "../utils/axiosUtils";
 
 
 /**
- * 
- * 로그인 
+ * login 
  * @param {*} data
  * @returns
  */

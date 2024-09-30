@@ -1,4 +1,5 @@
 import "./button.css";
+
 const Button = (props) => {
     const { children, size = "default", className, disabled, onClick, icon, ...otherProps } = props;
 

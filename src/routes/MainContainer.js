@@ -1,18 +1,21 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { PAGES } from "../constants/routes";
-import Login from "../pages/Login/Login";
+import Main from "../pages/Main/Main";
 import Intro from "../pages/Intro/Intro";
 import Join from "../pages/Join/Join";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
+import Profile from "../pages/Profile/Profile";
+import Post from "../pages/Post/Post";
 
 export const pages = [
+    { path: PAGES.MAIN, component: <Main /> },
     { path: PAGES.INTRO, component: <Intro /> },
     { path: PAGES.SIGNUP, component: <Join /> },
-    { path: PAGES.SIGNUP_EMAIL, component: <Login /> },
-    // { path: PAGES.SIGNUP_USERNAME, component: <Login /> },
     { path: PAGES.RESET_PSW, component: <ResetPassword /> },
-    // { path: PAGES.INTRO, component: <IntroPage /> },
+    { path: PAGES.MAIN, component: <Main /> },
+    { path: PAGES.PROFILE, component: <Profile /> },
+    { path: PAGES.POST, component: <Post /> },
 
 ];
 

@@ -1,0 +1,20 @@
+.post {
+    padding-bottom: 50px;
+}
+.post-header {
+    display: flex;
+    border-bottom: 1px solid #73737360;
+    height: 48px;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    background: #000;
+    z-index: 5;
+}
+.post-header p {
+    flex: 1;
+    padding-right: 24px;
+    font-family: "AppleSDGothicBold" !important;
+}

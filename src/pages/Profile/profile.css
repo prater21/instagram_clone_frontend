@@ -1,0 +1,152 @@
+.profile-header {
+    height: 48px;
+    border-bottom: 1px solid #73737360;
+    position: sticky;
+    top: 0;
+    background: #000;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-username {
+    font-family: "AppleSDGothicBold" !important;
+    font-size: 18px;
+}
+
+.profile-main {
+    display: flex;
+    padding: 40px 20px 24px 20px;
+    gap: 30px;
+    /* height: 180px; */
+    align-items: center;
+}
+
+.profile-img {
+    min-width: 77px;
+    height: 77px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.profile-info {
+    max-width: 600px;
+}
+
+.profile-title {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.profile-title p {
+    font-size: 20px;
+    margin-top: -4px;
+}
+
+.profile-title svg:hover {
+    width: 25px;
+    height: 25px;
+    margin-top: -1px;
+}
+
+.profile-edit {
+    margin: 12px 0 10px 0;
+    cursor: pointer;
+}
+
+.profile-edit p {
+    background-color: #3a3a3a;
+    width: 120px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 7px;
+    font-weight: 800;
+}
+
+.profile-description {
+    padding: 0 20px 25px 20px;
+    border-bottom: 1px solid #73737360;
+}
+
+.profile-description p {
+    font-size: 14px;
+}
+.profile-summary {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-summary a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #73737360;
+}
+.profile-summary .nav-active {
+    border-bottom: 1px solid white;
+    padding: 13px 0;
+}
+
+.profile-summary-link p {
+    font-size: 14px;
+}
+
+.profile-summary-link .title {
+    color: #a1a1a1;
+}
+
+/* post */
+.profile-post-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-bottom: 48px;
+}
+
+.profile-post {
+    flex: 0 1 33.3%;
+    /* max-width: 263px; */
+    position: relative;
+    background-color: #a1a1a1;
+}
+.profile-post img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.profile-hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-hover > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.profile-hover > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.profile-hover > div:nth-of-type(2) {
+    margin-top: 3px;
+}

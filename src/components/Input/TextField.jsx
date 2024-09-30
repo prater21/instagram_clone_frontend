@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Textarea } from "@mui/joy";
 import "./input.css";
 

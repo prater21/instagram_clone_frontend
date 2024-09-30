@@ -1,7 +1,6 @@
-import { checkError, sendPostRequest } from "../utils/axiosUtils";
+import { sendPostRequest } from "../utils/axiosUtils";
 
 /**
- *
  * send verification email
  * @param {*} data
  * @returns
@@ -13,7 +12,6 @@ export const postSendEmail = async (data) => {
 };
 
 /**
- *
  * confirm verification eamil
  * @param {*} data
  * @returns
@@ -27,7 +25,6 @@ export const postConfirmEmail = async (data) => {
 
 
 /**
- *
  * check email
  * @param {*} data
  * @returns
@@ -39,7 +36,6 @@ export const postCheckEmail = async (data) => {
 };
 
 /**
- *
  * check username
  * @param {*} data
  * @returns

@@ -1,7 +1,6 @@
-import { checkError, sendPostRequest } from "../utils/axiosUtils";
+import { sendPostRequest } from "../utils/axiosUtils";
 
 /**
- *
  * reset password
  * @param {*} data
  * @returns

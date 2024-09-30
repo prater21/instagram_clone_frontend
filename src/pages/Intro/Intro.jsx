@@ -1,21 +1,21 @@
-import "./intro.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CrossfadeImage from "react-crossfade-image";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Buttons/Button";
+import Border from "../../components/Border/Border";
+import { ErrorText } from "../../components/Text";
+import IntroWrapper from "../../components/Layout/IntroWrapper";
+import InputWrapper from "../../components/Layout/InputWrapper";
+import { checkValidation } from "../../utils/validation";
+import { postLoginApi } from "../../apis/loginApi";
 import phoneImg from "../../assets/images/intro-phone.png";
 import phoneSource1 from "../../assets/images/intro-img-1.png";
 import phoneSource2 from "../../assets/images/intro-img-2.png";
 import phoneSource3 from "../../assets/images/intro-img-3.png";
 import phoneSource4 from "../../assets/images/intro-img-4.png";
 import logoSrc from "../../assets/images/intro-logo.png";
-import Input from "../../components/Input/Input";
-import Button from "../../components/Buttons/Button";
-import { useNavigate } from "react-router-dom";
-import IntroWrapper from "../../components/Layout/IntroWrapper";
-import { useEffect, useState } from "react";
-import { checkValidation } from "../../utils/validation";
-import { postLoginApi } from "../../apis/loginApi";
-import CrossfadeImage from "react-crossfade-image";
-import Border from "../../components/Border/Border";
-import { ErrorText } from "../../components/Text";
-import InputWrapper from "../../components/Layout/InputWrapper";
+import "./intro.css";
 
 const Intro = () => {
     const navigate = useNavigate();

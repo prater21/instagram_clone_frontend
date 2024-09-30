@@ -1,0 +1,58 @@
+.post-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+    height: 60px;
+    border-bottom: 1px solid #73737340;
+}
+
+.post-profile img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.post-profile-username {
+    font-family: "AppleSDGothicSemiBold" !important;
+}
+.post-following {
+    font-family: "AppleSDGothicBold" !important;
+}
+
+.post-description {
+    padding: 6px 16px 16px;
+}
+.post-icons {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0 4px 0;
+}
+.post-description {
+    border-top: 1px solid #73737360;
+    /* height: 500px; */
+}
+
+.post-like {
+    margin: 8px 0 4px 0;
+    font-family: "AppleSDGothicSemiBold" !important;
+}
+
+.post-caption {
+    margin-bottom: 4px;
+}
+.post-caption span {
+    font-family: "AppleSDGothicSemiBold" !important;
+}
+
+.post-comment {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #a8a8a8;
+    cursor: pointer;
+}
+.post-date {
+    font-size: 12px;
+    color: #a8a8a8;
+}
