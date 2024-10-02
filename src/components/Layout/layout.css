@@ -43,21 +43,21 @@
     min-height: 100vh;
     max-width: 750px;
     margin: auto;
-    border: 1px solid #73737350;
-    border-bottom: none;
+    /* border: 1px solid #73737350; */
+    /* border-bottom: none; */
 }
 
 .main-footer {
     background-color: black;
     position: fixed;
     bottom: 0;
+    left: 0;
     height: 48px;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid #73737350;
-    max-width: 748px;
     z-index: 5;
 }
 

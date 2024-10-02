@@ -1,0 +1,27 @@
+.home-header {
+    height: 60px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #73737360;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 5;
+    width: 100%;
+}
+
+.home-logo {
+    height: 100%;
+}
+
+.home-body {
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+
+.home-body-border {
+    height: 1px;
+    width: 95%;
+    background: #73737360;
+    margin: 20px auto;
+}

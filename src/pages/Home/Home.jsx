@@ -4,9 +4,9 @@ import PostDetail from "../../components/Post/PostDetail";
 import { postUploadImg } from "../../apis/postApi";
 import imgSrc from "../../assets/images/intro-img-1.png";
 import logoSrc from "../../assets/images/logo-white.png";
-import "./main.css";
+import "./home.css";
 
-const Main = () => {
+const Home = () => {
     const [img, setImg] = useState(null);
 
     const getProfileImg = async (e) => {
@@ -94,16 +94,19 @@ const Main = () => {
 
     return (
         <MainWrapper>
-            <div className="main-header">
-                <img className="main-logo" src={logoSrc} alt="intro-logo" />
+            <div className="home-header">
+                <img className="home-logo" src={logoSrc} alt="intro-logo" />
             </div>
-            <div className="main-body">
-                {POST_DUMMY.map((post) => (
-                    <PostDetail post={post} />
+            <div className="home-body">
+                {POST_DUMMY.map((post, idx) => (
+                    <div>
+                        <PostDetail post={post} />
+                        <div className="home-body-border" />
+                    </div>
                 ))}
             </div>
         </MainWrapper>
     );
 };
 
-export default Main;
+export default Home;

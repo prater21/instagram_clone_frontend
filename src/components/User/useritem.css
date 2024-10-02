@@ -1,0 +1,32 @@
+.useritem {
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.useritem-img {
+    width: 60px;
+    height: 66px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.useritem-btn {
+    margin: 12px 0 10px 0;
+    cursor: pointer;
+    background-color: #737373;
+    width: 120px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 7px;
+    font-weight: 800;
+    margin-left: auto;
+}
+
+.useritem-username {
+    margin-left: 20px;
+}
+
+.useritem-btn:hover {
+    background-color: #424242;
+}

@@ -3,8 +3,5 @@
     --color-primary-gray: #737373;
     --color-primary-white: #ffffff;
     --color-error: #ca2929;
-    --screen-sm: 480px;
-    --screen-mb: 768px;
-    --screen-lg: 1024px;
-    --screen-xl: 1280px;
+    --screen-max-width: 650px;
 }

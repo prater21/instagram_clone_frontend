@@ -14,8 +14,10 @@
 }
 
 .swiper-post-img img {
-    width: 100%;
+    width: 99.7%;
     max-height: 798px;
+    border: 1px solid #73737340;
+    border-radius: 10px;
 }
 
 .swiper-post-nav {

@@ -9,7 +9,6 @@
 
 .ReactModal__Content {
     border: none;
-    border-radius: 16px 16px 0px 0px !important;
     background: rgb(23, 23, 23) !important;
 }
 
@@ -55,4 +54,55 @@
 
 .modal-comment-text {
     max-width: 565px;
+}
+
+/* profile modal */
+.modal-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 14px 20px 14px 0;
+    border-bottom: 1px solid #73737340;
+    position: sticky;
+    top: 0;
+    background: rgb(23, 23, 23) !important;
+}
+
+.modal-profile-title {
+    font-family: "AppleSDGothicSemiBold" !important;
+    flex: 1;
+    padding-left: 24px;
+}
+.modal-profile-header-save {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.modal-profile-body {
+    /* padding-top: 30px; */
+}
+
+.modal-profile-label {
+    color: rgb(183, 183, 183) !important;
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 20px !important;
+}
+
+.modal-profile-item {
+    padding: 20px 20px 10px 35px;
+    margin-top: 10px;
+    /* display: flex; */
+}
+.modal-profile-text {
+    font-size: 18px;
+}
+.modal-profile-form-item {
+    padding: 20px 30px 20px 35px;
+}
+
+.modal-profile-hr {
+    height: 1px;
+    background-color: rgb(89, 89, 89);
+    width: 80%;
+    margin: 10px auto 0;
 }

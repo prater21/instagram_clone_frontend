@@ -4,7 +4,7 @@
     gap: 16px;
     padding: 0 16px;
     height: 60px;
-    border-bottom: 1px solid #73737340;
+    /* border-bottom: 1px solid #73737340; */
 }
 
 .post-profile img {
@@ -30,7 +30,7 @@
     padding: 12px 0 4px 0;
 }
 .post-description {
-    border-top: 1px solid #73737360;
+    /* border-top: 1px solid #73737360; */
     /* height: 500px; */
 }
 

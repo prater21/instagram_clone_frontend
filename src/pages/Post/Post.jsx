@@ -25,7 +25,9 @@ const Post = () => {
                         />
                         <p>Post</p>
                     </div>
-                    <PostDetail post={post} />
+                    <div className="post-body">
+                        <PostDetail post={post} />
+                    </div>
                 </div>
             </MainWrapper>
         </>

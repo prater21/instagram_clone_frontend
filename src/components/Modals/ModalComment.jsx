@@ -16,6 +16,7 @@ const customStyles = {
         width: "100%",
         maxWidth: "650px",
         minHeight: "500px",
+        borderRadius: "16px 16px 0px 0px",
         border: "none",
         maxHeight: "670px",
     },
