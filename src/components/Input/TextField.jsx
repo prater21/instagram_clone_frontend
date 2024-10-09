@@ -1,7 +1,7 @@
 import { Textarea } from "@mui/joy";
 import "./input.css";
 
-let textAreaStyle = {
+const textAreaStyle = {
     minHeight: "150px",
     borderRadius: "3px",
     border: "1px solid rgba(219, 219, 219)",
@@ -37,8 +37,19 @@ let textAreaStyle = {
     },
 };
 
+const darkStyle = {
+    color: "rgb(255, 255, 255)",
+    backgroundColor: "transparent",
+    minHeight: "400px",
+    border: "none",
+    paddingTop: 0,
+    "&.Mui-focused": {
+        backgroundColor: "transparent",
+    },
+};
+
 const TextArea = (props) => {
-    const { setValue, placeholder = "", maxLength = "150", value } = props;
+    let { setValue, placeholder = "", maxLength = "150", value, theme = "white" } = props;
 
     const onChangeHandler = (e) => {
         if (e.target.value.length <= maxLength) {
@@ -48,7 +59,13 @@ const TextArea = (props) => {
 
     return (
         <div className="input-text">
-            <Textarea value={value} minRows={3} onChange={onChangeHandler} placeholder={placeholder} sx={textAreaStyle} />
+            <Textarea
+                value={value}
+                minRows={3}
+                onChange={onChangeHandler}
+                placeholder={placeholder}
+                sx={theme === "dark" ? { ...textAreaStyle, ...darkStyle } : textAreaStyle}
+            />
         </div>
     );
 };

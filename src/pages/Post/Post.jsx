@@ -11,7 +11,7 @@ const Post = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const post = location.state;
-    console.log(post);
+    // console.log(post);
 
     return (
         <>

@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 5;
 }
 
 .profile-username {
@@ -70,6 +71,10 @@
     font-weight: 800;
 }
 
+.profile-edit p:hover {
+    background-color: #3a3a3ad0;
+}
+
 .profile-edit.password p {
     width: 160px;
 }
@@ -117,15 +122,16 @@
 }
 
 .profile-post {
-    flex: 0 1 33.3%;
-    /* max-width: 263px; */
+    flex: 0 1 33.333333333333336%;
     position: relative;
-    background-color: #a1a1a1;
+    aspect-ratio: 1/1;
+    /* background-color: #a1a1a1; */
+    margin-bottom: -4px;
 }
 .profile-post img {
     width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
 }
 
 .profile-hover {

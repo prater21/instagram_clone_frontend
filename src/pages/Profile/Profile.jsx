@@ -18,6 +18,7 @@ const Profile = () => {
     const { username } = useParams();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+    const [modalType, setModalType] = useState(false);
 
     const info = {
         posts: 155,
@@ -52,6 +53,7 @@ const Profile = () => {
                                 className="profile-edit"
                                 onClick={() => {
                                     setIsOpen(true);
+                                    setModalType("profile");
                                 }}
                             >
                                 <p>Edit Profile</p>
@@ -60,6 +62,7 @@ const Profile = () => {
                                 className="profile-edit password"
                                 onClick={() => {
                                     setIsOpen(true);
+                                    setModalType("password");
                                 }}
                             >
                                 <p>Change Password</p>
@@ -89,7 +92,7 @@ const Profile = () => {
                     <Route path="following" element={<Following />} />
                 </Routes>
             </MainWrapper>
-            {isOpen && <ModalProfile isOpen={isOpen} closeModal={closeModal} />}
+            {isOpen && <ModalProfile isOpen={isOpen} type={modalType} closeModal={closeModal} />}
         </>
     );
 };

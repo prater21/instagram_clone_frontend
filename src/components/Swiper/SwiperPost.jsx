@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-import { IconSwiperLeftArrow, IconSwiperRightArrow } from "../../constants/icons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./swiper.css";
+import IconSwiperLeft from "../../assets/images/icon/icon-swiper-left";
+import IconSwiperRight from "../../assets/images/icon/icon-swiper-right";
 
-const SwiperPost = ({ post }) => {
+const SwiperPost = ({ imgs, border = true }) => {
+    console.log(border);
     const [swiperIndex, setSwiperIndex] = useState(0);
     const [swiper, setSwiper] = useState();
-
     const handlePrev = () => {
         swiper?.slidePrev();
     };
@@ -26,17 +27,17 @@ const SwiperPost = ({ post }) => {
                 }}
                 pagination={true}
                 modules={[Pagination, Navigation]}
-                className="swiper-post-img"
+                className={`swiper-post-img ${border ? "" : "no-border"}`}
             >
-                {post.imgs.map((img, idx) => (
+                {imgs.map((img, idx) => (
                     <SwiperSlide key={idx}>
                         <img src={img} alt="post-swiper-img" />
                     </SwiperSlide>
                 ))}
             </Swiper>
             <div className="swiper-post-nav">
-                {swiperIndex === 0 ? "" : <IconSwiperLeftArrow onClick={handlePrev} />}
-                {swiperIndex === post.imgs.length - 1 ? "" : <IconSwiperRightArrow onClick={handleNext} className="right" />}
+                {swiperIndex === 0 ? "" : <IconSwiperLeft onClick={handlePrev} />}
+                {swiperIndex === imgs.length - 1 ? "" : <IconSwiperRight onClick={handleNext} className="right" />}
             </div>
         </div>
     );

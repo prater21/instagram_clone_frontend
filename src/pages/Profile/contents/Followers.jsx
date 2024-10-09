@@ -35,7 +35,7 @@ const Followers = () => {
         },
     ];
     return (
-        <div className="following">
+        <div className="followers">
             {USER_DUMMY.map((user) => (
                 <UserItem user={user} />
             ))}

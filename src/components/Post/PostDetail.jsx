@@ -15,7 +15,6 @@ const PostDetail = ({ post }) => {
     const closeModal = () => {
         setIsOpen(false);
     };
-
     return (
         <>
             <div className="post-body">
@@ -26,7 +25,7 @@ const PostDetail = ({ post }) => {
                         <span>{"\u2022"} </span> <span className="post-following">Following</span>
                     </div>
                 </div>
-                <SwiperPost post={post} />
+                <SwiperPost imgs={post.imgs} />
                 <div className="post-description">
                     <div className="post-icons">
                         <IconLikeOutline />

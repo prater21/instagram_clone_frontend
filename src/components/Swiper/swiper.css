@@ -1,16 +1,19 @@
 .swiper-pagination-bullet {
     width: 6px !important;
     height: 6px !important;
-    background-color: #252525 !important;
+    background-color: #ffff !important;
+    opacity: 0.4;
     margin-left: 1px !important;
 }
 
 .swiper-pagination-bullet-active {
+    opacity: 1;
     background-color: #fff !important;
 }
 
 .swiper-post {
     position: relative;
+    height: 100%;
 }
 
 .swiper-post-img img {
@@ -18,6 +21,10 @@
     max-height: 798px;
     border: 1px solid #73737340;
     border-radius: 10px;
+}
+
+.swiper-post-img.no-border img {
+    border: none;
 }
 
 .swiper-post-nav {
@@ -38,8 +45,8 @@
     height: 24px;
 }
 .swiper-post-nav svg:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
-.swiper-post-nav svg.right {
+.swiper-post-nav .right {
     margin-left: auto;
 }

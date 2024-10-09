@@ -57,6 +57,7 @@
 }
 
 /* profile modal */
+
 .modal-profile-header {
     display: flex;
     align-items: center;
@@ -89,7 +90,7 @@
 }
 
 .modal-profile-item {
-    padding: 20px 20px 10px 35px;
+    padding: 10px 20px 10px 35px;
     margin-top: 10px;
     /* display: flex; */
 }
@@ -105,4 +106,106 @@
     background-color: rgb(89, 89, 89);
     width: 80%;
     margin: 10px auto 0;
+}
+
+/* create post modal */
+.modal-post {
+    position: relative;
+    height: 100%;
+}
+
+.modal-post-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: black;
+    height: 42px;
+    border-bottom: 1px solid #73737340;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-post-header .icon {
+    position: absolute;
+    left: 16px;
+}
+.modal-post-header .next {
+    position: absolute;
+    right: 16px;
+    color: var(--color-primary-blue);
+    cursor: pointer;
+}
+
+.modal-post-step1 {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.modal-post-photos-icon svg {
+    width: 70px;
+}
+
+.modal-post-photos-icon .left {
+    rotate: -20deg;
+}
+
+.modal-post-photos-icon .right {
+    margin-left: -16px;
+}
+
+.modal-post-add-photos {
+    padding: 5px 18px;
+    border-radius: 8px;
+    background-color: var(--color-primary-blue);
+}
+
+.modal-post-add-photos input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.modal-post-add-photos label {
+    font-family: "AppleSDGothicSemiBold" !important;
+    cursor: pointer;
+}
+
+/* step3 */
+.modal-post-step3-profile {
+    padding: 12px 20px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.modal-post-step3-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.modal-post-step3-profile p {
+    font-family: "AppleSDGothicSemiBold" !important;
+}
+
+.modal-post-step3-body {
+    height: 365px;
+    overflow: scroll;
+}
+
+.modal-post-step3-cnt {
+    font-size: 14px;
+    margin-left: auto;
+    padding-right: 10px;
+    color: var(--color-primary-gray);
+    width: 88px;
+    padding-top: 8px;
 }

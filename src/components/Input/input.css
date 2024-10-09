@@ -7,3 +7,9 @@
 .input-text {
     height: 150px !important;
 }
+
+.input-modal-label {
+    color: rgb(183, 183, 183) !important;
+    font-family: "AppleSDGothicRegular" !important;
+    font-size: 20px !important;
+}

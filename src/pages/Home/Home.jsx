@@ -99,7 +99,7 @@ const Home = () => {
             </div>
             <div className="home-body">
                 {POST_DUMMY.map((post, idx) => (
-                    <div>
+                    <div key={idx}>
                         <PostDetail post={post} />
                         <div className="home-body-border" />
                     </div>
