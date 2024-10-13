@@ -4,7 +4,7 @@ import IconLike from "../../../assets/images/icon/icon-like";
 import IconComment from "../../../assets/images/icon/icon-comment";
 import { useNavigate } from "react-router-dom";
 
-const Posts = () => {
+const Posts = ({ posts }) => {
     const [hover, setHover] = useState({});
     const navigate = useNavigate();
     const POST_DUMMY = [
@@ -69,11 +69,10 @@ const Posts = () => {
             imgs: [imgSrc, imgSrc, imgSrc, imgSrc],
         },
     ];
-    console.log(hover);
 
     return (
         <div className="profile-post-wrapper">
-            {POST_DUMMY?.map((post) => (
+            {posts?.map((post) => (
                 <div
                     className="profile-post"
                     key={post.id}
@@ -87,16 +86,16 @@ const Posts = () => {
                         setHover((prev) => ({ ...prev, [post.id]: false }));
                     }}
                 >
-                    <img src={post.imgs[0]} alt="post-thumbnail" />
+                    <img src={post.image[0]} alt="post-thumbnail" />
                     {hover[post?.id] && (
                         <div className="profile-hover">
                             <div>
                                 <IconLike />
-                                <p>3</p>
+                                <p>{post.like.length}</p>
                             </div>
                             <div>
                                 <IconComment />
-                                <p>3</p>
+                                <p>{post.comment.length}</p>
                             </div>
                         </div>
                     )}

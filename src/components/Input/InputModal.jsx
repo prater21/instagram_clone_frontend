@@ -32,7 +32,18 @@ const InputModal = ({ id, label, value, setValue, type = "" }) => {
             <InputLabel className="modal-profile-label" shrink htmlFor={id}>
                 {label}
             </InputLabel>
-            <StyledTextField type={type} autoComplete={"off"} id={id} fullWidth variant="filled" width />
+            <StyledTextField
+                type={type}
+                onChange={(e) => {
+                    console.log(type, e.target.value);
+                    setValue(id, e.target.value);
+                }}
+                value={value}
+                autoComplete={"off"}
+                id={id}
+                fullWidth
+                variant="filled"
+            />
         </>
     );
 };

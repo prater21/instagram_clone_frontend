@@ -37,6 +37,7 @@
 .post-like {
     margin: 8px 0 4px 0;
     font-family: "AppleSDGothicSemiBold" !important;
+    cursor: pointer;
 }
 
 .post-caption {

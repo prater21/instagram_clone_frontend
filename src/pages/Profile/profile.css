@@ -26,10 +26,13 @@
 }
 
 .profile-img {
-    min-width: 77px;
+    width: 77px;
     height: 77px;
-    background-color: white;
     border-radius: 50%;
+    cursor: pointer;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .profile-info {
@@ -57,7 +60,8 @@
     gap: 5px;
 }
 
-.profile-edit {
+.profile-edit,
+.profile-follow {
     margin: 12px 0 10px 0;
     cursor: pointer;
 }
@@ -66,13 +70,26 @@
     background-color: #3a3a3a;
     width: 120px;
     text-align: center;
-    padding: 5px;
-    border-radius: 7px;
+    padding: 8px;
+    border-radius: 8px;
     font-weight: 800;
 }
 
 .profile-edit p:hover {
     background-color: #3a3a3ad0;
+}
+
+.profile-follow {
+    padding: 8px 20px;
+    border-radius: 8px;
+    background-color: #3a3a3a;
+}
+.profile-follow:hover {
+    opacity: 0.9;
+}
+
+.profile-follow.follow {
+    background-color: var(--color-primary-blue);
 }
 
 .profile-edit.password p {
@@ -131,7 +148,7 @@
 .profile-post img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .profile-hover {
@@ -166,8 +183,7 @@
 }
 
 /* following */
-.following,
-.followers {
+.follow-warpper {
     padding-top: 5px;
     padding-bottom: 50px;
 }

@@ -9,7 +9,6 @@ import IconSwiperLeft from "../../assets/images/icon/icon-swiper-left";
 import IconSwiperRight from "../../assets/images/icon/icon-swiper-right";
 
 const SwiperPost = ({ imgs, border = true }) => {
-    console.log(border);
     const [swiperIndex, setSwiperIndex] = useState(0);
     const [swiper, setSwiper] = useState();
     const handlePrev = () => {
@@ -29,15 +28,29 @@ const SwiperPost = ({ imgs, border = true }) => {
                 modules={[Pagination, Navigation]}
                 className={`swiper-post-img ${border ? "" : "no-border"}`}
             >
-                {imgs.map((img, idx) => (
+                {imgs?.map((img, idx) => (
                     <SwiperSlide key={idx}>
                         <img src={img} alt="post-swiper-img" />
                     </SwiperSlide>
                 ))}
             </Swiper>
             <div className="swiper-post-nav">
-                {swiperIndex === 0 ? "" : <IconSwiperLeft onClick={handlePrev} />}
-                {swiperIndex === imgs.length - 1 ? "" : <IconSwiperRight onClick={handleNext} className="right" />}
+                {swiperIndex === 0 ? (
+                    ""
+                ) : (
+                    <>
+                        <IconSwiperLeft onClick={handlePrev} color="#000" className="second" />
+                        <IconSwiperLeft onClick={handlePrev} />
+                    </>
+                )}
+                {swiperIndex === imgs?.length - 1 ? (
+                    ""
+                ) : (
+                    <>
+                        <IconSwiperRight onClick={handleNext} className="right second" color="#000" />
+                        <IconSwiperRight onClick={handleNext} className="right" />
+                    </>
+                )}
             </div>
         </div>
     );

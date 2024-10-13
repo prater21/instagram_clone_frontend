@@ -5,11 +5,12 @@ import { IconAdd } from "../../constants/icons";
 import "./layout.css";
 import { useState } from "react";
 import ModalPost from "../Modals/ModalPost";
+import { getLocal } from "../../utils/common";
 
 const MainWrapper = ({ children }) => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-
+    const username = getLocal("username");
     const closeModal = () => {
         setIsOpen(false);
     };
@@ -35,7 +36,7 @@ const MainWrapper = ({ children }) => {
                     <div>
                         <IcoonProfile
                             onClick={() => {
-                                navigate("/prater/main");
+                                navigate(`/${username}/main`);
                             }}
                         />
                     </div>

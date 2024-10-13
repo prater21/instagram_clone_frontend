@@ -36,6 +36,10 @@ const Intro = () => {
         const response = await postLoginApi(formData);
         if (response.result === "Y") {
             // navigate to main page
+            localStorage.setItem("access_token", response.access_token);
+            localStorage.setItem("u_id", response.user_id);
+            localStorage.setItem("username", response.username);
+            navigate("/");
         } else {
             setLoginError(true);
         }

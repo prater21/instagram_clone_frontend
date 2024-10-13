@@ -40,12 +40,16 @@ let textAreaStyle = {
 };
 
 const TextFieldModal = ({ value, setValue, maxLength, id, label }) => {
+    const getValue = (e) => {
+        if (e.target.value.length > maxLength) return;
+        setValue(id, e.target.value);
+    };
     return (
         <>
             <InputLabel className="input-modal-label" shrink htmlFor={id}>
                 {label}
             </InputLabel>
-            <Textarea sx={textAreaStyle} id={id} />
+            <Textarea value={value} onChange={getValue} sx={textAreaStyle} id={id} />
         </>
     );
 };

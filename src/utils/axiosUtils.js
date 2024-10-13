@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getLocal } from "./common";
 
 const getTimestamp = () => {
     var now = new Date();
@@ -10,9 +11,6 @@ const axiosInstance = axios.create({
     timeout: 5000,
 });
 
-const getAccessToken = () => {
-    return localStorage.getItem("access_token");
-};
 
 const sendGetRequest = async (uri, params) => {
     try {
@@ -28,7 +26,7 @@ const sendGetRequest = async (uri, params) => {
         return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -40,14 +38,15 @@ const sendGetRequestWithToken = async (uri, params) => {
                 // timestamp: getTimestamp(),
             },
             headers: {
-                Authorization: getAccessToken(),
+                Authorization: `Bearer ${getLocal('access_token')}`,
             },
         });
-        checkSessionError(response.data);
-        return { result: "Y", ...response.date };
+        // checkSessionError(response.data);
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        console.log('response', error)
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -62,7 +61,7 @@ const sendPostRequest = async (uri, data) => {
         return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -76,15 +75,15 @@ const sendPostRequestWithToken = async (uri, data) => {
             },
             {
                 headers: {
-                    Authorization: getAccessToken(),
+                    Authorization: `Bearer ${getLocal('access_token')}`,
                 },
             }
         );
         checkSessionError(response.data);
-        return { result: "Y", ...response.date };
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -92,11 +91,11 @@ const sendPostRequestFormData = async (uri, data) => {
     try {
         const response = await axiosInstance.post(`/${uri}`, data,
         );
-        checkSessionError(response.data);
-        return { result: "Y", ...response.date };
+        // checkSessionError(response.data);
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -110,15 +109,15 @@ const sendPutRequest = async (uri, data) => {
             },
             {
                 headers: {
-                    Authorization: getAccessToken(),
+                    Authorization: `Bearer ${getLocal('access_token')}`,
                 },
             }
         );
         checkSessionError(response.data);
-        return { result: "Y", ...response.date };
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response.status || 404, message: response.data };
     }
 };
 
@@ -126,14 +125,14 @@ const sendDeleteRequest = async (uri, data) => {
     try {
         const response = await axiosInstance.delete(`/${uri}`, data, {
             headers: {
-                Authorization: getAccessToken(),
+                Authorization: `Bearer ${getLocal('access_token')}`,
             },
         });
         checkSessionError(response.data);
-        return { result: "Y", ...response.date };
+        return { result: "Y", ...response.data };
     } catch (error) {
         const response = error.response
-        return { result: "N", code: response.status, message: response.data };
+        return { result: "N", code: response?.status || 404, message: response?.data };
     }
 };
 
@@ -210,5 +209,4 @@ export {
     sendGetRequestWithToken,
     sendPostRequestWithToken,
     sendPostRequestFormData,
-    getAccessToken,
 };

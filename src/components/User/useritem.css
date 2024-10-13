@@ -8,7 +8,6 @@
     width: 60px;
     height: 66px;
     border-radius: 50%;
-    object-fit: fill;
 }
 
 .useritem-btn {
@@ -17,10 +16,14 @@
     background-color: #737373;
     width: 120px;
     text-align: center;
-    padding: 4px;
-    border-radius: 7px;
+    padding: 6px;
+    border-radius: 8px;
     font-weight: 800;
     margin-left: auto;
+}
+
+.useritem-btn.follow {
+    background-color: var(--color-primary-blue);
 }
 
 .useritem-username {
@@ -29,4 +32,11 @@
 
 .useritem-btn:hover {
     background-color: #424242;
+}
+
+.user-profile-img {
+    object-fit: contain;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }

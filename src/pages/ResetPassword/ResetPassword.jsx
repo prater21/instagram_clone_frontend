@@ -83,10 +83,9 @@ const ResetPassword = () => {
             setDisabled(true);
             return;
         }
-        const flag = password.password === password.rePassword;
+        const flag = password.password !== password.rePassword;
         setDisabled(!flag);
     }, [password, authCode]);
-
     return (
         <IntroWrapper>
             <Border className="reset-wrapper">

@@ -36,7 +36,7 @@
     padding: 0 12px;
     top: 50%;
     transform: translate(0, -50%);
-    z-index: 2;
+    z-index: 10;
 }
 
 .swiper-post-nav svg {
@@ -49,4 +49,12 @@
 }
 .swiper-post-nav .right {
     margin-left: auto;
+}
+.swiper-post-nav .second {
+    position: absolute;
+    left: 12px;
+}
+.swiper-post-nav .right.second {
+    position: absolute;
+    right: 12px;
 }
